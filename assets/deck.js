@@ -22,8 +22,11 @@
 
   /* ---------- escala ---------- */
   function escalar() {
-    var s = Math.min(window.innerWidth / LARGURA, window.innerHeight / ALTURA);
-    stage.style.transform = 'scale(' + s + ')';
+    var lv = window.innerWidth, av = window.innerHeight;
+    var s = Math.min(lv / LARGURA, av / ALTURA);
+    var x = Math.round((lv - LARGURA * s) / 2);
+    var y = Math.round((av - ALTURA * s) / 2);
+    stage.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + s + ')';
   }
 
   /* ---------- índice ---------- */

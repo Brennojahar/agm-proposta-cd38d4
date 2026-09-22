@@ -54,10 +54,13 @@ body{
 /* ============================================================
    PALCO — canvas fixo 1280×720 escalado para caber na viewport
    ============================================================ */
-#deck{position:fixed;inset:0;display:grid;place-items:center;overflow:hidden;background:var(--preto-puro)}
+#deck{position:fixed;inset:0;overflow:hidden;background:var(--preto-puro)}
+/* o palco é posicionado e centrado pelo JS (translate + scale a partir de 0,0).
+   Centrar por grid falha quando a viewport é menor que 1280px: o item
+   transborda e o navegador alinha ao início, jogando o slide para fora. */
 #stage{
-  position:relative;width:1280px;height:720px;flex:none;
-  transform-origin:center center;
+  position:absolute;top:0;left:0;width:1280px;height:720px;
+  transform-origin:0 0;
   background:var(--branco);
   box-shadow:0 30px 90px rgba(0,0,0,.55);
 }
